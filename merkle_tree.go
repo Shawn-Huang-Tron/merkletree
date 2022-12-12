@@ -108,7 +108,7 @@ func NewTree(cs []Content) (*MerkleTree, error) {
 
 // NewTreeWithHashStrategy creates a new Merkle Tree using the content cs using the provided hash
 // strategy. Note that the hash type used in the type that implements the Content interface must
-// match the hash type profided to the tree.
+// match the hash type provided to the tree.
 func NewTreeWithHashStrategy(cs []Content, hashStrategy func() hash.Hash) (*MerkleTree, error) {
 	t := &MerkleTree{
 		hashStrategy: hashStrategy,
@@ -273,7 +273,6 @@ func (m *MerkleTree) VerifyTree() (bool, error) {
 	return false, nil
 }
 
-// TODO: change it
 // VerifyContent indicates whether a given content is in the tree and the hashes are valid for that content.
 // Returns true if the expected Merkle Root is equivalent to the Merkle root calculated on the critical path
 // for a given content. Returns true if valid and false otherwise.
